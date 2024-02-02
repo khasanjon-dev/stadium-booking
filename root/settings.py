@@ -92,7 +92,7 @@ TIME_ZONE = 'Asia/Tashkent'
 
 USE_I18N = True
 
-USE_TZ = True
+USE_TZ = False
 
 STATIC_URL = 'static/'
 STATIC_ROOT = os.path.join(BASE_DIR / 'static')
@@ -109,8 +109,16 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': (
         'django_filters.rest_framework.DjangoFilterBackend',
     ),
-
+    'DATETIME_FORMAT': '%Y-%m-%d %-H:%M:%S',
 }
+'''
+    'DATETIME_INPUT_FORMATS': ['%d-%m-%Y %H:%M:%S', '%d-%m-%Y %-H:%M:%S'],
+    'DATE_INPUT_FORMATS': ['%d-%m-%Y %H:%M:%S', '%d-%m-%Y %-H:%M:%S'],
+    'DATETIME_FORMAT': '%d-%m-%Y %-H:%M:%S',
+    'DEFAULT_PAGINATION_CLASS': 'apps.utils.pagination.CustomPageNumberPagination',
+    'EXCEPTION_HANDLER': 'apps.utils.exceptions.custom_exception_handler',
+    'PAGE_SIZE': 10
+'''
 
 SIMPLE_JWT = {
     'ACCESS_TOKEN_LIFETIME': timedelta(days=7),
