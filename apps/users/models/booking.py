@@ -4,7 +4,7 @@ from stadiums.models import Stadium
 from users.models import User
 
 
-class Book(Model):
+class Booking(Model):
     # date
     start = DateTimeField()
     end = DateTimeField()

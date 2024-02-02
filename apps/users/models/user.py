@@ -29,7 +29,7 @@ class User(AbstractUser):
         OWNER = 'owner', 'owner'
         USER = 'user', 'user'
 
-    name = CharField(max_length=250)
+    first_name = CharField(max_length=250)
     username = CharField(max_length=150, blank=True, null=True)
     phone = CharField(max_length=12, validators=[phone_regex], unique=True)
     role = CharField(max_length=5, choices=Role.choices)
