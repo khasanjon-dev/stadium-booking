@@ -1,4 +1,4 @@
-from django_filters import FilterSet, DateTimeFilter
+from django_filters import FilterSet, DateTimeFilter, CharFilter
 
 from stadiums.models import Stadium
 
@@ -6,10 +6,9 @@ from stadiums.models import Stadium
 class StadiumFilter(FilterSet):
     start = DateTimeFilter()
     end = DateTimeFilter()
+    latitude = CharFilter()
+    longitude = CharFilter()
 
-    # latitude = NumericRangeFilter()
-    # longitude = NumericRangeFilter()
-
-    class Meta:
-        model = Stadium
-        fields = ('latitude', 'longitude', 'start', 'end')
+    # class Meta:
+    #     model = Stadium
+    #     fields = ('latitude', 'longitude', 'start', 'end')

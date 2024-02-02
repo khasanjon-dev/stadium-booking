@@ -15,7 +15,7 @@ class UserSerializer(ModelSerializer):
 
 
 class StadiumModelSerializer(ModelSerializer):
-    owner = UserSerializer(HiddenField(default=CurrentUserDefault()))
+    owner = HiddenField(default=CurrentUserDefault())
 
     class Meta:
         model = Stadium
